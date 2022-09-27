@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Closed Listings</h2>
+
+    {%for list in listing%}
+    {%if empty%}
+    <h4>No Listing</h4>
+    {%endif%}
+    <div>
+        <ul>
+            <h4><a href="{%url 'cdlisting' list.id %}">{{list.title}}</a></h4>
+            <h4>{{list.bid}}</h4>
+            <h4>{{list.description}}</h4>
+            <h4>{{list.category}}</h4>
+        </ul>
+    </div>  
+    {%endfor%}  
+{% endblock %}

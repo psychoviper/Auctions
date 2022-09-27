@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+{%if message%}
+<h6>{{message}}</h6>
+{%endif%}
+    <h1>Listing {{listing.id}}</h1>
+    <h1>{{listing.title}}</h1>
+    <h1>Starting Bid is {{listing.bid}}$</h1>
+    <h1>Price is {{price}}$</h1>
+    <h1>{{listing.description}}</h1>
+    <h1>{{listing.image}}</h1>
+    <h1>{{listing.category}}</h1>
+    {% if user %}
+        <form action="{% url 'bidding' listing.id%}" method="post">
+            {%csrf_token%}
+            <input type="integer" name="bid" placeholder="Enter Bid Price">
+            <input type='submit' value="Submit">
+        </form>
+        <a href="{% url 'add' listing.id %}" type="button">Add to Watchlist</a>
+    {%endif%}
+    <br>
+    {%if bool%}
+    <a href="{% url 'close' listing.id%}" type="button">Close Bid</a>
+    {%endif%}
+
+
+{%endblock%}
