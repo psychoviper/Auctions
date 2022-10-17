@@ -9,6 +9,7 @@ urlpatterns = [
     path("watch", views.watch, name="watch"),
     path("closed", views.closed, name="closed"),
     path("<int:listing_id>/add", views.add, name="add"),
+    path("<int:listing_id>/remove", views.remove, name="remove"),
     path("<int:listing_id>/bidding", views.bidding, name="bidding"),
     path("create", views.create, name="create"),
     path("login", views.login_view, name="login"),
