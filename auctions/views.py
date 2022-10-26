@@ -121,8 +121,9 @@ def watch(request):
     except ObjectDoesNotExist:
         return render(request, "auctions/watchlist.html")
 
-@login_required
+
 def bidding(request, listing_id):
+    if request.user.is_authenticated:
         if request.method=="POST":
             if request.POST['bid']:
                 p=float(request.POST['bid'])
@@ -152,6 +153,9 @@ def bidding(request, listing_id):
             else:
                 messages.error(request,"Please enter Bid amount.")
                 return HttpResponseRedirect(reverse('listing',args=(listing_id,)))
+    else:
+        return render(request, 'auctions/error.html',{'message':'Please Login to view the Product'})
+    
 
 def categories(request):
     return render(request, "auctions/categories.html", {
