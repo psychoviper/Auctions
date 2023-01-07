@@ -27,6 +27,8 @@ DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['https://auctions.up.railway.app','https://*.127.0.0.1']
 ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_WHITELIST = ['http://auctions.up.railway.app',]
+
 
 
 # Application definition
