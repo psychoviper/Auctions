@@ -25,7 +25,7 @@ SECRET_KEY = '6ps8j!crjgrxt34cqbqn7x&b3y%(fny8k8nh21+qa)%ws3fh!q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ['https://*.auctions.up.railway.app/.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://auctions.up.railway.app','https://*.127.0.0.1']
 ALLOWED_HOSTS = ["*"]
 
 
